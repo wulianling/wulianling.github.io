@@ -209,25 +209,20 @@
     </div>
 
     
-
-    
-      
-<div id="vcomment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    var notify = 'false' == true ? true : false;
-    var verify = 'false' == true ? true : false;
-    new Valine({
-        av: AV,
-        el: '#vcomment',
-        notify: notify,
-        app_id: "ALxV22d4cc4yhjhBo05YWXac-gzGzoHsz",
-        app_key: "NfxI1wphGlSAxhPosHN9J7cK",
-        placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-        avatar:"mm",
-    });
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk@latest/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+<script type="text/javascript">
+    new Gitalk({
+        clientID: '6f79f4666e8ab9f236f5',
+        clientSecret: 'ce8495810d7b54564008673ec449172926c65084',
+        repo: 'comments',
+        owner: 'wulianling',
+        admin: 'wulianling',
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    }).render('gitalk-container')
 </script>
     
 
@@ -291,6 +286,21 @@
             }
         }
     })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'wulianling.github.io',      // The repository of store comments,
+        owner: 'wulianling',
+        admin: ['wulianling'],
+        language: '',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
 </script>
  
 </body>
