@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="search, 当年明月">
+    <meta name="keywords" content="谈谈fnal、fnally、 fnalize有什么不同？, 当年明月">
     <meta name="description" content="成功是为了学习和进步，还是为了证明你聪明？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>search | 当年明月</title>
+    <title>谈谈fnal、fnally、 fnalize有什么不同？ | 当年明月</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">search</h1>
+                    <h1 class="description center-align post-title">谈谈fnal、fnally、 fnalize有什么不同？</h1>
                 </div>
             </div>
         </div>
@@ -454,12 +454,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                基础
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -468,34 +481,34 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-27
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-27
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
                 
 
-                <span id="/search/index.html" class="leancloud-visitors view" data-flag-title="search">
+                <span id="/2020/11/30/what-differ-about-final-finally-finalize/" class="leancloud-visitors view" data-flag-title="谈谈fnal、fnally、 fnalize有什么不同？">
 
                     <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                     <span class="leancloud-visitors-count">loading</span>
@@ -510,7 +523,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p><strong>谈谈fnal、fnally、 fnalize有什么不同？</strong></p>
+<h3 id="★考点"><a href="#★考点" class="headerlink" title="★考点"></a>★考点</h3><p>主要是从语法和使用实践角度出发的，其实还有很多方面可以深入探讨，面试官还可以考察你对性能、并发、对象生命周期或垃圾 收集基本过程等方面的理解。</p>
+<p><strong>final</strong></p>
+<ul>
+<li>我们可以将方法或者类声明为fnal，这样就可以明确告知别人，这些行为是不许修改的。</li>
+<li>使用fnal修饰参数或者变量，也可以清楚地避免意外赋值导致的编程错误，甚至，有人明确推荐将所有方法参数、本地变量、成员变量声明成fnal</li>
+<li>fnal变量产生了某种程度的不可变（immutable）的效果，所以，可以用于保护只读数据，尤其是在并发编程中，因为明确地不能再赋值fnal变量，有利于减少额外的同步开 销，也可以省去一些防御性拷贝的必要。</li>
+</ul>
+<p><strong>finally</strong><br>对于fnally，明确知道怎么使用就足够了</p>
+<p>特例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	&#x2F;&#x2F; do something  Sysem.exit(1); </span><br><span class="line">&#125; fnally&#123;  </span><br><span class="line">	Sysem.out.println(“Print from fnally”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面fnally里面的代码可不会被执行的哦</p>
+<p><strong>finalize</strong><br>finalize()是Object中的方法，我们要明确它是不推荐使用的，业界实践一再证明它不是个好的办法，，在Java 9中，甚至明确将Object.fnalize()标记为deprecated！如果没有特别的原因，不要实 现fnalize方法，也不要指望利用它来进行资源回收</p>
+<h3 id="知识扩展"><a href="#知识扩展" class="headerlink" title="知识扩展"></a>知识扩展</h3><ol>
+<li><strong>注意，final 不是immutable！</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fnal Lis&lt;String&gt; srLis &#x3D; new ArrayLis&lt;&gt;(); </span><br><span class="line">srLis.add(&quot;Hello&quot;); srLis.add(&quot;world&quot;);  </span><br><span class="line"> Lis&lt;String&gt; unmodifableStrLis &#x3D; Lis.of(&quot;hello&quot;, &quot;world&quot;); </span><br><span class="line"> unmodifableStrLis.add(&quot;again&quot;);</span><br></pre></td></tr></table></figure>
+在上面这个例子中，List.of方法创建的本身就是不可变List，最后那句add是会在运行时抛出异常的。在上面这个例子中，List.of方法创建的本身就是不可变List，最后那句add是会在运行时抛出异常的。</li>
+</ol>
+<p>Immutable在很多场景是非常棒的选择，某种意义上说，Java语言目前并没有原生的不可变支持，如果要实现immutable的类，我们需要做到：</p>
+<ul>
+<li>将class自身声明为fnal，这样别人就不能扩展来绕过限制了。</li>
+<li>将所有成员变量定义为private和fnal，并且不要实现setter方法。</li>
+<li>通常构造对象时，成员变量使用深度拷贝来初始化，而不是直接赋值，这是一种防御措施，因为你无法确定输入对象不被其他人修改。</li>
+<li>如果确实需要实现getter方法，或者其他可能会返回内部状态的方法，使用copy-on-write原则，创建私有的copy。</li>
+</ul>
+<p><strong>copy-on-write原则</strong>，即写时复制。其核心思想是，有线程使用容器中的数据时，<strong>如果是写入</strong>，则复制出一个新容器，修改新容器中的数据后，再将引用指向新容器。<strong>如果是读操作</strong>则正常读引用地址中的容器数据。这里需要注意的是，复制新容器时底层通过copyof()方法来实现的，这是一个深层复制方法，即新容器是一个新的对象，在堆中有自己的内存区域，操作新容器不会影响旧容器，当然这也会增加内存开销。所以在复制的时候也加了锁，否则多线程会复制出多个对象占用内存，很容易导致OOM。</p>
+<ol start="2">
+<li><strong>fnalize真的那么不堪？</strong><br>fnalize是一种已经被业界证明了的非常不好的实践，那么为什么会导致那些问题呢？<br>fnalize被设计成在对象被垃圾收集前调用，这就意味着实现了fnalize方法的对象是个“特殊公民”，JVM要对它进行额外处理。fnalize本质上成为了快速回收的阻碍者，可能 导致你的对象经过多个垃圾收集周期才能被回收。</li>
+<li><strong>有什么机制可以替换fnalize吗？</strong><br>Java平台目前在逐步使用java.lang.ref.Cleaner来替换掉原有的fnalize实现。Cleaner的实现利用了幻象引用（PhantomReference），这是一种常见的所谓post-mortem清理 机制。我会在后面的专栏系统介绍Java的各种引用，利用幻象引用和引用队列，我们可以保证对象被彻底销毁前做一些类似资源回收的工作，比如关闭文件描述符（操作系统有限的 资源），它比fnalize更加轻量、更加可靠。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class CleaningExample implements AutoCloseable &#123;</span><br><span class="line">&#x2F;&#x2F; A cleaner, preferably one shared within a library</span><br><span class="line">    private satic fnal Cleaner cleaner &#x3D; &lt;cleaner&gt;;</span><br><span class="line">    satic class State implements Runnable &#123;</span><br><span class="line">        State(...) &#123;</span><br><span class="line">        &#x2F;&#x2F; initialize State needed for cleaning action</span><br><span class="line">        &#125;</span><br><span class="line">        public void run() &#123;</span><br><span class="line">        &#x2F;&#x2F; cleanup action accessing State, executed at mos once</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private fnal State;</span><br><span class="line">    private fnal Cleaner.Cleanable cleanable</span><br><span class="line">    public CleaningExample() &#123;</span><br><span class="line">        this.sate &#x3D; new State(...);</span><br><span class="line">        this.cleanable &#x3D; cleaner.regiser(this, sate);</span><br><span class="line">    &#125;</span><br><span class="line">    public void close() &#123;</span><br><span class="line">        cleanable.clean();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+实现AutoCloseable 重写close方法。</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -536,7 +579,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wulianling.github.io/search/index.html">https://wulianling.github.io/search/index.html</a>
+                    <a href="https://wulianling.github.io/2020/11/30/what-differ-about-final-finally-finalize/">https://wulianling.github.io/2020/11/30/what-differ-about-final-finally-finalize/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,7 +616,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1004,18 +1051,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/search/index.html">
+                <a href="/2020/11/30/JAVA-memory-area-and-memory-model/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="search">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【转载】Java内存区域（运行时数据区域）和内存模型（JMM）">
                         
-                        <span class="card-title">search</span>
+                        <span class="card-title">【转载】Java内存区域（运行时数据区域）和内存模型（JMM）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1025,18 +1071,33 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TheMoonLight
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1044,16 +1105,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/search/index.html">
+                <a href="/2020/11/30/what-differ-about-Exception-and-error/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="search">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Exception和Error有什么区别？">
                         
-                        <span class="card-title">search</span>
+                        <span class="card-title">Exception和Error有什么区别？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1064,17 +1125,32 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TheMoonLight
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%82%E5%B8%B8/">
+                        <span class="chip bg-color">异常</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
