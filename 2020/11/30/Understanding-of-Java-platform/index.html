@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="建站筆記, 当年明月">
+    <meta name="keywords" content="java平台的理解, 当年明月">
     <meta name="description" content="成功是为了学习和进步，还是为了证明你聪明？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>建站筆記 | 当年明月</title>
+    <title>java平台的理解 | 当年明月</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">建站筆記</h1>
+                    <h1 class="description center-align post-title">java平台的理解</h1>
                 </div>
             </div>
         </div>
@@ -456,12 +456,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/%E5%B9%B3%E5%8F%B0/">
+                                <span class="chip bg-color">平台</span>
                             </a>
                         
                     </div>
@@ -472,8 +472,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                学习
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                基础
                             </a>
                         
                     </div>
@@ -485,34 +485,34 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-26
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-27
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    137
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    9 分
                 </div>
                 
 
                 
 
-                <span id="/2020/11/26/build_blog_note/" class="leancloud-visitors view" data-flag-title="建站筆記">
+                <span id="/2020/11/30/Understanding-of-Java-platform/" class="leancloud-visitors view" data-flag-title="java平台的理解">
 
                     <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                     <span class="leancloud-visitors-count">loading</span>
@@ -527,27 +527,85 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基本命令备忘"><a href="#基本命令备忘" class="headerlink" title="基本命令备忘"></a>基本命令备忘</h2><p><strong>清除 构建 本地部署</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-<p>默认本地url:<a target="_blank" rel="noopener" href="http://localhost:4000/" title="http://localhost:4000/">http://localhost:4000</a></p>
-<p><strong>清除 构建 提交远程（github）</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d -m &quot;提交备注&quot;</span><br></pre></td></tr></table></figure>
+                <p><strong>谈谈你对Java平台的理解？“Java是解释执行”，这句话正确吗？</strong></p>
+<h3 id="★考点"><a href="#★考点" class="headerlink" title="★考点"></a>★考点</h3><p>题目是开放性的，往往考察的是多个方面，比如：</p>
+<ol>
+<li>基础知识理解是否很清晰</li>
+<li>是否掌握Java平台的主要模块和运行原理等</li>
+</ol>
+<p>你需要尽量表现出自己的思维升入并系统化，java知识理解的也比较拳迷看，一定要避免让面试官觉得你是一个“知其然不知其所以然”的人.</p>
+<p style="text-indent:2em">
+    对于java平台的理解，可以从很多方面简明扼要的谈一下，例如：
 
+<ol>
+<li>java的特性，包括泛型 、Lambda等语言特性</li>
+<li>基础类库，包括集合、IO/NIO、网络、并发、安全等基础类库。</li>
+<li>或者谈谈JVM的一些基础概念和机制，比如JAVA的类加载机制，常用版本内嵌的Class-Loader，例如Bootstrap、Application和Exception Class-loader；类加载的大只过程：加载、验证、连接、初始化；自定义Class-Loader等。还有垃圾收集的基本原理，最常见的垃圾收集机制，如SerialGC、ParallelGC，CMS、G1等</p>
+
+</li>
+</ol>
+<h3 id="★学习足迹"><a href="#★学习足迹" class="headerlink" title="★学习足迹"></a>★学习足迹</h3><h2 id="JAVA代码的运行流程"><a href="#JAVA代码的运行流程" class="headerlink" title="JAVA代码的运行流程"></a>JAVA代码的运行流程</h2><p style="text-indent:2em">
+我们编写的代码都是在java文件中编写的，然后会编译成class字节码文件。
+当我们使用到哪个类的时候就会通过类加载器把class字节码文件中的类加载到jvm内存中，然后就是在jvm内存中运行我们的代码了。类加载器是如何把类加载到jvm内存中的，小伙伴们有考虑过吗？
+</p>
+
+<h2 id="JVM什么时候加载类"><a href="#JVM什么时候加载类" class="headerlink" title="JVM什么时候加载类"></a>JVM什么时候加载类</h2><p style="text-indent:2em">
+一个类的加载过程会经历如下的几个过程：
+
+<p><strong>加载、验证、准备、解析、初始化、使用、卸载</strong></p>
+<p><strong>加载</strong></p>
+<p>”加载“是”类加机制”的第一个过程，在加载阶段，虚拟机主要完成三件事：</p>
+<p>（1）通过一个类的全限定名来获取其定义的二进制字节流</p>
+<p>（2）将这个字节流所代表的的静态存储结构转化为方法区的运行时数据结构</p>
+<p>（3）在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问入口。</p>
+<p>jvm是什么时候去加载类的呢？<br>程序的入口，具有main方法的类，肯定是最开始的时候就加载到jvm中了。<br>jvm是通过什么方式对类进行加载的呢？<br>就是类加载器。</p>
+<p><strong>jvm的类加载器总体上可以分成4层:</strong></p>
+<ol>
+<li>动类加载器<br> 首先就是jvm启动的第一道关口，启动类加载器Bootstrap ClassLoader，它主要是加载java的核心类。<br>相信大家都知道，无论是什么环节下运行java程序，都是要安装jvm虚拟机环境的，而在这个环境的目录中是有一个lib文件夹的，这个文件下就是java最核心的类库，支撑着java系统的运行.<br> 所以一旦jvm启动，那么首先就会通过启动类加载器去加载lib文件夹下的核心类库。</li>
+<li>扩展类加载器<br> 然后我们就到了第二层，扩展类加载器Extension ClassLoader，这个类加载器其实与启动类加载器是类似的。<br>在我们的jvm虚拟机环境目录下，是有一个lib/ext的文件夹的，这里面的类就是java运行环境的一些扩展类，这些扩展类就是在jvm启动后，通过扩展类加载器进行加载的。</li>
+<li>应用程序类加载器<br>加载完核心类库和扩展类，这时候就到了第三层，应用程序类加载器Application ClassLoader，这个类加载器你就可以理解成是加载我们写好的java代码的就可以了。</li>
+<li>自定义类加载器<br>前面的三层就是基本的类加载器了，然后第四层是自定义类加载器，根据一些特殊的需求来自己定义类加载器加载我们的类。</li>
+</ol>
+<p>整体上类加载器就是这么的4层结构。很多小伙伴可能都听说过<strong>双亲委派机制</strong>，那么什么是<strong>双亲委派机制</strong>呢?</p>
+<p>其实很好理解，就是当我们的类加载器要加载一个类的时候，它首先会委派给它的父亲去加载，但是如果它的父亲没找到就会把这个事交给他的孩子自己去完成了。</p>
+<p>举个例子，假如我们的应用程序类加载器要加载一个类A，那么首先它会先回家找它老爸扩展类加载器，问问“老爸，你那有这个类A吗？”<br>然后扩展类加载器接到这个请求之后，同样也懒得处理，再去找它爷爷启动类加载器。<br>它爷爷找了一圈没找到类A，很生气，就对扩展类加载器说，“我这没有，你自己找去！”<br>然后扩展类加载器就灰溜溜的自己找了一圈，同样也没找到，这时候就找到应用类加载器了，说：“我这哪有你这个类A，这明明是你自己应该干的活，爱上哪找上哪找去，我不管了”。<br>这时候应用类加载器就只能自己去处理了，找了一圈发现找到了类A，就把它加载到jvm内存中了。</p>
+<p><strong>验证</strong><br>jvm根据java规范，来校验你加载进来的class文件中的内容是否符合规范，如果不符合规范jvm是无法正常运行的。</p>
+<ol>
+<li>文件格式的验证：验证.class文件字节流是否符合class文件的格式的规范，并且能够被当前版本的虚拟机处理。这里面主要对魔数、主版本号、常量池等等的校验（魔数、主版本号都是.class文件里面包含的数据信息、在这里可以不用理解）。</li>
+<li>元数据验证：主要是对字节码描述的信息进行语义分析，以保证其描述的信息符合java语言规范的要求，比如说验证这个类是不是有父类，类中的字段方法是不是和父类冲突等等。</li>
+<li>字节码验证：这是整个验证过程最复杂的阶段，主要是通过数据流和控制流分析，确定程序语义是合法的、符合逻辑的。在元数据验证阶段对数据类型做出验证后，这个阶段主要对类的方法做出分析，保证类的方法在运行时不会做出威海虚拟机安全的事。</li>
+<li>符号引用验证：它是验证的最后一个阶段，发生在虚拟机将符号引用转化为直接引用的时候。主要是对类自身以外的信息进行校验。目的是确保解析动作能够完成。</li>
+</ol>
+<p><strong>准备</strong><br><strong>准备阶段主要为类变量分配内存并设置初始值</strong><br>假设我们有一个类A，刚刚加载并通过了验证，那么就会进行准备工作。<br>这个准备工作其实就是给类A分配一定的内存空间，然后给里面的静态变量(static修饰的变量)也分配内存空间，并赋初始值。</p>
+<p><strong>解析</strong></p>
+<p>这个阶段干的事实际上是<strong>把符号引用替换为直接引用</strong>，这一过程网上有很多资料，还是比较复杂的，如果感兴趣小伙伴们可以自己查阅一下资料。</p>
+<ul>
+<li>符号引用：以一组符号来描述所引用的目标，可以是任何形式的字面量，只要是能无歧义的定位到目标就好，就好比在班级中，老师可以用张三来代表你，也可以用你的学号来代表你，但无论任何方式这些都只是一个代号（符号），这个代号指向你（符号引用）</li>
+<li>直接引用：直接引用是可以指向目标的指针、相对偏移量或者是一个能直接或间接定位到目标的句柄。和虚拟机实现的内存有关，不同的虚拟机直接引用一般不同。</li>
+</ul>
+<p><strong>初始化</strong><br>在准备阶段，我们把类A的内存已经分配完了，那么初始化阶段要做些什么事呢？我们先看一下类A的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class A &#123;</span><br><span class="line">    private static String i&#x3D;System.getProperty(&quot;i&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>准备阶段我们只是给变量i分配了内存空间，并赋值了初始值，但是后边的System.getProperty(“i”)是不会执行的。<br>没错，这部分代码就是在初始化阶段执行的，另外静态代码块也会在这一阶段执行。<br>举个例子，比如我们新建一个对象new A()，此时就会触发从加载到初始化的全过程，把这个类准备好并创建一个实例对象。<br>    此外这里有一个规则，如果类A继承了类B，那么在初始化类A的时候，如果发现类B还没有初始化，会先初始化类B。</p>
+<p><strong>扩展</strong><br>    小伙伴们想过没有，Tomcat也是用java开发的，那么它的类加载机制是什么样的呢，为什么就能支持jsp呢？<br>    其实它就是利用了自定义类加载器这一机制，自己自定义了很多类加载器<br>    Tomcat自定义了这么多的类加载器，用来加载它自己的核心类库，并且Tomcat是打破了双亲委派机制的，感兴趣的小伙伴可以自己去查资料了解一下，本篇文章长篇大论来聊Tomcat了。</p>
 <hr>
-<h2 id="建站帮助连接"><a href="#建站帮助连接" class="headerlink" title="建站帮助连接"></a>建站帮助连接</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av370050627" title="免费搭建属于自己的个人博客网站">视频教程</a></p>
-<p><a target="_blank" rel="noopener" href="https://bet-yc.top/2020/04/28/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%96%87%E5%AD%97%E6%95%99%E7%A8%8B%E5%86%85%E5%90%AB%E6%89%80%E9%9C%80%E4%BB%A3%E7%A0%81/#more" title="免费搭建属于自己的个人博客网站">文字教程</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ec4e678f6cef">更换主题</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1078192" title="导入码云，通过码云下载">gitgub下载慢的替代方案</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/29017171" title="hexo 下的分类和表签无法显示，怎么解决？">个人踩得坑</a></p>
-<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo的API文档</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/191d1e21f7ed/">Markdown基本语法</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/heimu24/article/details/81189700/">Markdown进阶</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/css_colors.asp">CSS颜色</a></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014085547">为Hexo添加Gitalk评论插件</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/treeskyer/p/13966061.html">一款超好用的第三方评论插件–Gitalk</a></p>
-<hr>
-<hr>
-<center><font  face="楷体" size=10 color="#00a0e9"><strong>欲善其事，必利其器</strong></font></center>
+<p><strong>java是解释运行的吗？</strong><br>不正确！</p>
+<ol>
+<li>Java源代码经过Javac编译成.class文件 </li>
+<li>class文件经JVM解析或编译运行。 <ul>
+<li>（1）解析:.class文件经过JVM内嵌的解析器解析执行。 </li>
+<li>（2）编译:存在JIT编译器（Just In Time Compile<br>即时编译器）把经常运行的代码作为”热点代码”编译与本地平台相关的机器码，并进行各种层次的优化。 </li>
+<li>（3）AOT编译器: Java 9提供的直接将所有代码编译成机器码执行。</li>
+</ul>
+</li>
+</ol>
+<p>　　以 Oracle JDK提供的HotSpot虚拟机为例，在HotSpot虚拟机中，提供了两种编译模式：<strong>解释执行</strong> 和 <strong>即时编译（JIT，Just-In-Time）</strong>。解释执行即逐条翻译字节码为可运行的机器码，而即时编译则以方法为单位将字节码翻译成机器码（上述提到的“编译执行”）。前者的优势在于不用等待，后者则在实际运行当中效率更高。</p>
+<p>　即时编译存在的意义在于它是提高程序性能的重要手段之一。根据“二八定律”（即：百分之二十的代码占据百分之八十的系统资源），对于大部分不常用的代码，我们无需耗时间将之编译为机器码，而是采用解释执行的方式，用到就去逐条解释运行；对于一些仅占据小部分的热点代码（可认为是反复执行的重要代码），则可将之翻译为符合机器的机器码高效执行，提高程序的效率，此为运行时的即时编译。</p>
+</p>
+
+
+
+
 
 
                 
@@ -575,7 +633,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wulianling.github.io/2020/11/26/build_blog_note/">https://wulianling.github.io/2020/11/26/build_blog_note/</a>
+                    <a href="https://wulianling.github.io/2020/11/30/Understanding-of-Java-platform/">https://wulianling.github.io/2020/11/30/Understanding-of-Java-platform/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -613,12 +671,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/%E5%B9%B3%E5%8F%B0/">
+                                    <span class="chip bg-color">平台</span>
                                 </a>
                             
                         </div>
@@ -1051,17 +1109,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/27/reflections_on_the_psychology_of_procrastination/">
+                <a href="/2020/11/30/Understanding-of-Java-platform/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="《拖延心理學》讀後感及反思">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="java平台的理解">
                         
-                        <span class="card-title">《拖延心理學》讀後感及反思</span>
+                        <span class="card-title">java平台的理解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1071,30 +1130,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%98%85%E8%AF%BB/" class="post-category">
-                                    阅读
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BF%83%E7%90%86/">
-                        <span class="chip bg-color">心理</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/%E5%8F%8D%E6%80%9D/">
-                        <span class="chip bg-color">反思</span>
+                    <a href="/tags/%E5%B9%B3%E5%8F%B0/">
+                        <span class="chip bg-color">平台</span>
                     </a>
                     
                 </div>
@@ -1108,13 +1168,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/26/hello-world/">
+                <a href="/2020/11/30/Interview-skills/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="程序员面试技巧">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">程序员面试技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1125,14 +1185,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/HelloWorld/" class="post-category">
-                                    HelloWorld
+                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
                                 </a>
                             
                             
@@ -1142,8 +1202,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/HelloWorld/">
-                        <span class="chip bg-color">HelloWorld</span>
+                    <a href="/tags/%E6%8A%80%E5%B7%A7/">
+                        <span class="chip bg-color">技巧</span>
                     </a>
                     
                 </div>
@@ -1346,7 +1406,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.9k</span>&nbsp;字
+                class="white-color">22.8k</span>&nbsp;字
             
             
             
