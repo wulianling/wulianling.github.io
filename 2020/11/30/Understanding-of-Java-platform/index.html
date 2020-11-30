@@ -540,10 +540,10 @@
 <ol>
 <li>java的特性，包括泛型 、Lambda等语言特性</li>
 <li>基础类库，包括集合、IO/NIO、网络、并发、安全等基础类库。</li>
-<li>或者谈谈JVM的一些基础概念和机制，比如JAVA的类加载机制，常用版本内嵌的Class-Loader，例如Bootstrap、Application和Exception Class-loader；类加载的大只过程：加载、验证、连接、初始化；自定义Class-Loader等。还有垃圾收集的基本原理，最常见的垃圾收集机制，如SerialGC、ParallelGC，CMS、G1等</p>
+<li>或者谈谈JVM的一些基础概念和机制，比如JAVA的类加载机制，常用版本内嵌的Class-Loader，例如Bootstrap、Application和Exception Class-loader；类加载的大只过程：加载、验证、连接、初始化；自定义Class-Loader等。还有垃圾收集的基本原理，最常见的垃圾收集机制，如SerialGC、ParallelGC，CMS、G1等</li></ol></p>
 
-</li>
-</ol>
+
+
 <h3 id="★学习足迹"><a href="#★学习足迹" class="headerlink" title="★学习足迹"></a>★学习足迹</h3><h2 id="JAVA代码的运行流程"><a href="#JAVA代码的运行流程" class="headerlink" title="JAVA代码的运行流程"></a>JAVA代码的运行流程</h2><p style="text-indent:2em">
 我们编写的代码都是在java文件中编写的，然后会编译成class字节码文件。
 当我们使用到哪个类的时候就会通过类加载器把class字节码文件中的类加载到jvm内存中，然后就是在jvm内存中运行我们的代码了。类加载器是如何把类加载到jvm内存中的，小伙伴们有考虑过吗？
@@ -552,7 +552,7 @@
 <h2 id="JVM什么时候加载类"><a href="#JVM什么时候加载类" class="headerlink" title="JVM什么时候加载类"></a>JVM什么时候加载类</h2><p style="text-indent:2em">
 一个类的加载过程会经历如下的几个过程：
 
-<p><strong>加载、验证、准备、解析、初始化、使用、卸载</strong></p>
+</p><p><strong>加载、验证、准备、解析、初始化、使用、卸载</strong></p>
 <p><strong>加载</strong></p>
 <p>”加载“是”类加机制”的第一个过程，在加载阶段，虚拟机主要完成三件事：</p>
 <p>（1）通过一个类的全限定名来获取其定义的二进制字节流</p>
@@ -601,7 +601,7 @@
 </ol>
 <p>　　以 Oracle JDK提供的HotSpot虚拟机为例，在HotSpot虚拟机中，提供了两种编译模式：<strong>解释执行</strong> 和 <strong>即时编译（JIT，Just-In-Time）</strong>。解释执行即逐条翻译字节码为可运行的机器码，而即时编译则以方法为单位将字节码翻译成机器码（上述提到的“编译执行”）。前者的优势在于不用等待，后者则在实际运行当中效率更高。</p>
 <p>　即时编译存在的意义在于它是提高程序性能的重要手段之一。根据“二八定律”（即：百分之二十的代码占据百分之八十的系统资源），对于大部分不常用的代码，我们无需耗时间将之编译为机器码，而是采用解释执行的方式，用到就去逐条解释运行；对于一些仅占据小部分的热点代码（可认为是反复执行的重要代码），则可将之翻译为符合机器的机器码高效执行，提高程序的效率，此为运行时的即时编译。</p>
-</p>
+<p></p>
 
 
 
@@ -1109,18 +1109,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/30/Understanding-of-Java-platform/">
+                <a href="/2020/11/30/what-differ-about-Exception-and-error/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="java平台的理解">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Exception和Error有什么区别？">
                         
-                        <span class="card-title">java平台的理解</span>
+                        <span class="card-title">Exception和Error有什么区别？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1130,9 +1129,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1145,7 +1144,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1153,8 +1151,8 @@
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/%E5%B9%B3%E5%8F%B0/">
-                        <span class="chip bg-color">平台</span>
+                    <a href="/tags/%E5%BC%82%E5%B8%B8/">
+                        <span class="chip bg-color">异常</span>
                     </a>
                     
                 </div>
@@ -1406,7 +1404,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">22.8k</span>&nbsp;字
+                class="white-color">25k</span>&nbsp;字
             
             
             
