@@ -492,7 +492,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-01
+                    2020-12-02
                 </div>
                 
 
@@ -552,7 +552,7 @@
 <li>弱引用也是用来描述非必需对象的，被弱引用关联的对象 <strong>只能生存到下一次垃圾收集发生之前</strong> 。当垃圾收集器工作时，无论内存是否足够，都会回收掉只被弱引用关联的对象。</li>
 <li>虚引用是最弱的一种引用关系。 <strong>无法通过虚引用来取得一个对象实例</strong>。为一个对象设置虚引用关联的唯一目的就是能在这个对象被收集器回收时收到一个系统通知。</li>
 </ol>
-<p><img src="/2020/12/01/java-gc/gc1.png"></p>
+<p><img src="/2020/12/01/java-gc/gc2.png"></p>
 <h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4><p>不可达的对象将暂时处于“缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程：</p>
 <ol>
 <li>如果对象在进行可达性分析后发现没有与<strong>GCRoots相连接的引用链</strong>，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行 finalize() 方法。</li>
@@ -1238,18 +1238,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/12/01/java-gc/">
+                <a href="/2020/12/02/differ-betwen-String-StringBuffer-and-StringBuilder/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="【转载】垃圾回收">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="理解Java的字符串，String、StringBufer、StringBuilder有什么区别">
                         
-                        <span class="card-title">【转载】垃圾回收</span>
+                        <span class="card-title">理解Java的字符串，String、StringBufer、StringBuilder有什么区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1259,9 +1258,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-02
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1274,7 +1273,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1282,8 +1280,8 @@
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/gc/">
-                        <span class="chip bg-color">gc</span>
+                    <a href="/tags/String/">
+                        <span class="chip bg-color">String</span>
                     </a>
                     
                 </div>
@@ -1539,7 +1537,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">44.2k</span>&nbsp;字
+                class="white-color">45.1k</span>&nbsp;字
             
             
             
