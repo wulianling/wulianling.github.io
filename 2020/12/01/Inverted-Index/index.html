@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博弈论入门, 当年明月">
+    <meta name="keywords" content="倒排索引, 当年明月">
     <meta name="description" content="成功是为了学习和进步，还是为了证明你聪明？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>博弈论入门 | 当年明月</title>
+    <title>倒排索引 | 当年明月</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">博弈论入门</h1>
+                    <h1 class="description center-align post-title">倒排索引</h1>
                 </div>
             </div>
         </div>
@@ -456,27 +456,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BF%83%E7%90%86/">
-                                <span class="chip bg-color">心理</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%8D%9A%E5%BC%88/">
-                                <span class="chip bg-color">博弈</span>
+                            <a href="/tags/ES/">
+                                <span class="chip bg-color">ES</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E9%98%85%E8%AF%BB/" class="post-category">
-                                阅读
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -485,34 +472,34 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-28
+                    2020-12-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2021-10-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    946
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    3 分
                 </div>
                 
 
                 
 
-                <span id="/2020/11/28/Game-Theory/" class="leancloud-visitors view" data-flag-title="博弈论入门">
+                <span id="/2020/12/01/Inverted-Index/" class="leancloud-visitors view" data-flag-title="倒排索引">
 
                     <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                     <span class="leancloud-visitors-count">loading</span>
@@ -527,96 +514,78 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="★引子"><a href="#★引子" class="headerlink" title="★引子"></a>★引子</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8D%9A%E5%BC%88%E8%AE%BA">博弈论</a>该理论专门研究多个独立个体之间的竞争行为（对抗行为）。在某些中文书籍里面，它又被称作“对策论 or 赛局理论”。<br>本篇只做入门，后面有精力，会考虑详细学习，<br>有时候 入门和无知，已经能感受到巨大的差距了，不是吗？</p>
-</blockquote>
-<h3 id="★策略-＆-策略集合"><a href="#★策略-＆-策略集合" class="headerlink" title="★策略 ＆ 策略集合"></a>★策略 ＆ 策略集合</h3><p><strong>决策选项（move） VS 策略（strategy）</strong></p>
-<p>　某些资料（比如维基百科）把“move”直译为“移动”。这个译法比较怪。在本文中，俺称之为“决策选项”。<br>　　很多人混淆了“策略”与“决策选项”。<br>　　以象棋为例，完成一局需要经历很多个步骤。对每个步骤，你都有 N 个决策选项（要走哪个棋子，走到哪）。而“策略”指的是——从第一步到最后一步的所有决策选项的【总和】。你可以把“策略”通俗理解为某种【算法 or 指导思想】，它指导你从第一步走到最后一步。</p>
-<p><strong>★实例：（二战中）新几内亚的航路作战</strong><br>话说太平洋战场上，美日双方对新几内亚岛展开争夺战。美方通过截获的情报得知日方有一支补给船队要开往该岛。日军补给船队有两条路线可走（北线 or 南线），两条路线都耗时3天。在南线，这3天都是晴天；在北线有2天是晴天，1天是阴雨（阴雨天会影响美军轰炸）。<br>　　美方空军将领手头只有一个飞行队，需要决策：把这个飞行队派到哪一边执行轰炸任务？如果押宝的方向错误，重新部署又会浪费掉1天时间。<br>　　对这个博弈过程，美方的收益矩阵参见下述表格。表格中的数字表示“可用来轰炸的天数”（对美军而言，这个数字越大越好）。</p>
-<table style>
-    <tr>
-        <td></td>
-        <td colspan="3" style="text-align:center">日方</td>
-    </tr>
-    <tr>
-        <td rowspan="3">美方</td>
-        <td></td>
-        <td>北线</td>
-        <td>南线</td>
-    </tr>
-    <tr>
-        <td>北线</td>
-        <td>2</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>南线</td>
-        <td>1</td>
-        <td>3</td>
-    </tr>
-
-</table>
-　　从上述收益矩阵来看，美军应该选哪个策略，不那么明显。但如果【换位思考】，看日军的策略，就非常明显啦。
-<table style>
-    <tr>
-        <td></td>
-        <td colspan="3" style="text-align:center">日方</td>
-    </tr>
-    <tr>
-        <td rowspan="3">美方</td>
-        <td></td>
-        <td>北线</td>
-        <td>南线</td>
-    </tr>
-    <tr>
-        <td>北线</td>
-        <td>2,-2</td>
-        <td>2,-2</td>
-    </tr>
-    <tr>
-        <td>南线</td>
-        <td>1,-1</td>
-        <td>3,-3</td>
-    </tr>
-</table>
-　第2个表格补充了日方的收益（以逗号分隔）。由于日方是遭受轰炸，其收益以“负数”表示。
-　　从日方的角度（表格的【纵向】角度）来看，走北线是其【支配策略】——不论美方如何选择，日方走北线的收益都不比南线差。对应到刚才介绍的概念，日方的这个“支配策略”属于“弱支配策略”。
-　　知道日军必定走北线之后，美军就很容易选定自己的策略了。
-
-<h3 id="★最小最大定理"><a href="#★最小最大定理" class="headerlink" title="★最小最大定理"></a>★最小最大定理</h3><p>这个玩意儿洋文叫做“Minimax”，比较绕口的陈述是：最小化最大损失。更通俗的表述是：在最坏情况下最小化损失。</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20615717">分蛋糕博弈</a></p>
-<h3 id="★反向归纳法"><a href="#★反向归纳法" class="headerlink" title="★反向归纳法"></a>★反向归纳法</h3><p>　该方法洋文称之为“backward induction”。其精髓是【正向展望，反向推理】<br>　首先，你需要思考自己的每个决策，以及对方在应对你的决策时，会采用何种决策（这个思维过程类似于【决策树的展开】）<br>　　这个展开过程要一直推演到【最后一步】（也就是决策树的叶子节点）。此时你就可以看清双方在最后一步各自的最优选择；然后再反向回推到第一步。</p>
-<p><strong>海盗博弈（海盗分金问题）</strong><br>博弈场景描述<br>　　5个海盗抢了100个金币，讨论如何分赃。<br>　　这5个海盗有等级高低（不妨假设 A＞B＞C＞D＞E）。先由等级最高的海盗提出分赃方案，然后投票。如果半数以上（含半数）同意，就按这个方案分，游戏结束；如果同意的不到半数，把提出方案的海盗扔进海里喂鲨鱼，然后由次一等级的海盗提出新的方案；以此类推。<br>　　每个海盗的特点是：足够理性（追求个人利益最大化）并且知道别人也足够理性；足够残忍（在个人利益等同的情况下，倾向于把更多同伴扔进海里）。</p>
+                <h3 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h3><ol>
+<li>分词<ol>
+<li>把字段分词 如：小米手机 分成 小米、手机；</li>
+</ol>
+</li>
+<li>统计<br>  统计分词在在哪里出现，标记出现的位置</li>
+<li>相关度<br> 当查询 如：小米智能手机<ol>
+<li>进行分词，如：小米：智能：手机；分别在倒排索引表中出现的次数  次数越多 表示相关度越高，表示最想要的结果。</li>
+</ol>
+</li>
+</ol>
+<h4 id="速度"><a href="#速度" class="headerlink" title="速度"></a>速度</h4><p>单核 CPU 一般大于 100GB  内存 一般大概是20-50GB  磁盘 Raid 一般 SATA3 500MB </p>
+<h4 id="倒排索引-查询索引文件不需要模糊查询"><a href="#倒排索引-查询索引文件不需要模糊查询" class="headerlink" title="倒排索引(查询索引文件不需要模糊查询)"></a>倒排索引(查询索引文件不需要模糊查询)</h4><ol>
+<li><p>数据结构</p>
+<ol>
+<li>包含这个关键词的document list </li>
+<li>关键词在每个doc中 出现的次数 TF term frequency 词频</li>
+<li>关键词在索引中出现的次数 IDF inverse doc frequency </li>
+<li>关键词在当前doc中出席那的次数</li>
+<li>每个doc的长度，越长相关度越低</li>
+<li>包含这个关键词的所有doc的平均长度</li>
+</ol>
+</li>
+<li><p>Lucene<br>jar包， 帮我们创建倒排索引，提供了复杂的API<br>如果用Lucene做集群实现搜索，会有哪些问题</p>
+<ol>
+<li>节点一旦宕机，数据丢失，后果不堪设想</li>
+<li>自己维护，麻烦（自己创建管理索引），单台节点的承载请求的能力是有限的，需要人工负载（雨露均沾）。</li>
+</ol>
+</li>
+</ol>
+<h3 id="ES-分布式、高性能、高可用、可伸缩、已维护-ES-不等于-搜索引擎"><a href="#ES-分布式、高性能、高可用、可伸缩、已维护-ES-不等于-搜索引擎" class="headerlink" title="ES: 分布式、高性能、高可用、可伸缩、已维护 ES 不等于 搜索引擎"></a>ES: 分布式、高性能、高可用、可伸缩、已维护 ES 不等于 搜索引擎</h3><ol>
+<li>分布式的搜索，存储和数据分析引擎</li>
+<li>优点<ol>
+<li>面向开发者友好，屏蔽Lucene的复杂特性，集群自动发现</li>
+<li>自动维护数据在过个节点上的建立。</li>
+<li>会帮我做搜索请求的负载均衡</li>
+<li>自动维护冗余副本，保证了部分节点宕机的情况下仍然不会有任何数据丢失</li>
+<li>ES基于Lucene提供很多高级功能：符合查询，聚合分析，基于地理位置</li>
+<li>对于大公司，可以构建几百台服务器的大型分布式集群，处理PB级别数据，对于小公司，开箱即用，门槛低上手简单。</li>
+<li>相遇传统数据库，提供了全文检索，同义词处理，</li>
+</ol>
+</li>
+<li>应用领域<ol>
+<li>全文检索、高亮、搜索推荐</li>
+<li>各大网站的用户行为日志（点击、浏览、收藏、评论）</li>
+<li>（Business Intelligence 商业智能）,数据分析：数据挖掘统计。</li>
+<li>GitHub:代码托管平台，几千亿代码</li>
+<li>ELK：（Elasticsearch（数据存储）、Logstash(日志采集)、Kibana(可视化) </li>
+</ol>
+</li>
+</ol>
+<h3 id="ES核心概念"><a href="#ES核心概念" class="headerlink" title="ES核心概念"></a>ES核心概念</h3><ol>
+<li>Cluster（集群）：每个集群至少包含两个节点。</li>
+<li>Node:集群中的各个节点，一个节点不代表一台服务器。</li>
+<li>Filed：一个数据字段，与index和type一起，可以定位一个doc.</li>
+<li>Document:ES最小的数据单元。</li>
+<li>ype：逻辑上的数据分类。</li>
+<li>Index：一类相同或者类似的doc,比如一个员工索引，商品索引。</li>
+</ol>
+<h3 id="share-分片-（P-Primary-share；R-replica-share）"><a href="#share-分片-（P-Primary-share；R-replica-share）" class="headerlink" title="share 分片  （P:Primary share；R:replica share）"></a>share 分片  （P:Primary share；R:replica share）</h3><ol>
+<li>一个index包含多个share，默认5P，默认每个P分配一个R，P的数量在创建所以韩的时候设置，如果想修改，需要重建索引。</li>
+<li>每个share都是一个Lucene实例，有完整的创建索引的处理请求能力。</li>
+<li>ES会自动在nodes上为我们做shared均衡。</li>
+<li>一个doc是不可能同时存在于多个shared中的，但是可以存在于多个shared中。</li>
+<li>P和对应的R不能同时存在于同一个节点中，所以最低的可用配置是两台节点，互为主备。</li>
+</ol>
 <blockquote>
-<p>　　为了进行反向推理，假设最后只剩下2个海盗（D ＆ E）。此时的投票肯定过半（D 肯定投票赞同自己的方案）。在这种局面下，D 可以采用最极端的方案——自己全拿100个金币，E 则一个也拿不到。<br>　　现在回推一步。当只剩下3个海盗（C、D、E），由 C 提出方案。他只需要分1个金币给 E，E 就会投票支持（否则的话，等到由 D 来提方案，E 啥也拿不到）。所以在 C 的方案中，他自己拿99个金币，E 拿1个金币。<br>　　再往前一步。只剩下4个海盗（B、C、D、E），B 提方案，他当然也能想到刚才那些推理。他只需给 D 1个金币，D 就会支持他（如果等到 C 来提方案，D 啥也拿不到）。所以 B 提出的方案是 B：99，C：0，D：1，E：0，同样能得到半数支持。<br>　　基于上述分析，再看 A 的方案，就很显然了——A：98，B：0，C：1，D：0，E：1<br>    有些同学可能会觉得：A 还可以提出另一个等价方案 A：98，B：0，C：0，D：1，E：1（把 C ＆ D 交换）<br>　　其实这个方案【不】等价。如果是后面这个方案，D 会投反对票，于是 A 去喂鲨鱼，由 B 来提方案，D 还是可以拿到1个金币。虽然两种方案，D 都是拿1个金币。但基于规则中提到的【残忍性】，D 会对 A 的方案投反对票。</p>
+<p>不同的数据（类型。结构）不要存放在同一个index中！ 数据被用来做复杂的聚合分析（耗时、耗资源），会导致查询慢。</p>
 </blockquote>
-<h3 id="★纳什均衡"><a href="#★纳什均衡" class="headerlink" title="★纳什均衡"></a>★纳什均衡</h3><p>　所谓的“纳什均衡”，通俗地说是指——在多人的“非合作博弈”中，如果每个博弈者都无法【单方面】改善自己的境地，此时的局面称作“纳什均衡”。<br>　　冯·诺伊曼已经在《博弈论与经济行为》一书中证明了：零和博弈必定存在这样的均衡点。<br>　　纳什的贡献在于——他从“零和博弈”推广到“非零和博弈”，并证明了：这样的均衡点依然存在。<br><strong>实例：囚徒困境</strong><br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9B%9A%E5%BE%92%E5%9B%B0%E5%A2%83">囚犯困境</a></p>
-<table style>
-    <tr>
-        <td></td>
-        <td colspan="3" style="text-align:center">囚犯B</td>
-    </tr>
-    <tr>
-        <td rowspan="3">囚犯A</td>
-        <td></td>
-        <td>坦白</td>
-        <td>抵赖</td>
-    </tr>
-    <tr>
-        <td>坦白</td>
-        <td>-2,-2</td>
-        <td>0,-5</td>
-    </tr>
-    <tr>
-        <td>抵赖</td>
-        <td>-5,0</td>
-        <td>1,-1</td>
-    </tr>
-</table>
-<p style="text-indent:2em">
-　　基于上述矩阵，“双方都坦白”的局面是“纳什均衡点”（表格中着色的格子）——在这个均衡局面下，任何一个囚犯【单方面】改变策略，只会让自己更不利。
-　　作为对比，“双方都抵赖”虽然是双赢的局面，但这个局面是【不】稳定滴。因为在这个局面下，任何一个囚犯都有动机去改变策略，从而让自己的获益更多。</p>
-
+<blockquote>
+<p>一台机器宕机，保证其他节点数据的完整性<br>横向扩展 share rebalance：数据量的提升，副本：QPS的提升，高可用</p>
+</blockquote>
 
                 
             </div>
@@ -643,7 +612,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wulianling.github.io/2020/11/28/Game-Theory/">https://wulianling.github.io/2020/11/28/Game-Theory/</a>
+                    <a href="https://wulianling.github.io/2020/12/01/Inverted-Index/">https://wulianling.github.io/2020/12/01/Inverted-Index/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -681,12 +650,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BF%83%E7%90%86/">
-                                    <span class="chip bg-color">心理</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%8D%9A%E5%BC%88/">
-                                    <span class="chip bg-color">博弈</span>
+                                <a href="/tags/ES/">
+                                    <span class="chip bg-color">ES</span>
                                 </a>
                             
                         </div>
@@ -1123,13 +1088,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/29/The-Order-of-Time/">
+                <a href="/2020/12/02/differ-betwen-String-StringBuffer-and-StringBuilder/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="《时间秩序》--颠覆对世界固有直觉">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="理解Java的字符串，String、StringBufer、StringBuilder有什么区别">
                         
-                        <span class="card-title">《时间秩序》--颠覆对世界固有直觉</span>
+                        <span class="card-title">理解Java的字符串，String、StringBufer、StringBuilder有什么区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1140,14 +1105,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%98%85%E8%AF%BB/" class="post-category">
-                                    阅读
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
                                 </a>
                             
                             
@@ -1157,12 +1122,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A7%91%E6%99%AE/">
-                        <span class="chip bg-color">科普</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/%E6%97%B6%E9%97%B4/">
-                        <span class="chip bg-color">时间</span>
+                    <a href="/tags/String/">
+                        <span class="chip bg-color">String</span>
                     </a>
                     
                 </div>
@@ -1176,13 +1141,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/27/reflections_on_the_psychology_of_procrastination/">
+                <a href="/2020/12/01/java-gc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="《拖延心理學》讀後感及反思">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="【转载】垃圾回收">
                         
-                        <span class="card-title">《拖延心理學》讀後感及反思</span>
+                        <span class="card-title">【转载】垃圾回收</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1193,14 +1158,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%98%85%E8%AF%BB/" class="post-category">
-                                    阅读
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
                                 </a>
                             
                             
@@ -1210,12 +1175,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BF%83%E7%90%86/">
-                        <span class="chip bg-color">心理</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/%E5%8F%8D%E6%80%9D/">
-                        <span class="chip bg-color">反思</span>
+                    <a href="/tags/gc/">
+                        <span class="chip bg-color">gc</span>
                     </a>
                     
                 </div>
