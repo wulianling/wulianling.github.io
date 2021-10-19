@@ -479,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-17
+                    2021-10-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    952
+                    1.1k
                 </div>
                 
 
@@ -586,6 +586,25 @@
 <blockquote>
 <p>一台机器宕机，保证其他节点数据的完整性<br>横向扩展 share rebalance：数据量的提升，副本：QPS的提升，高可用</p>
 </blockquote>
+<h3 id="ES容错"><a href="#ES容错" class="headerlink" title="ES容错"></a>ES容错</h3><ol>
+<li>第一步：master选举<ul>
+<li>当master节点宕机的时候，ES会自动的在剩余的机器中选择一个作为master节点</li>
+<li>如果是本节点当选master，票数过半后当选master，然后告诉别的节点没戏了，可以停下来，如果是别的节点当选，那么请求新的master节点加入集群。</li>
+</ul>
+<ol>
+<li>脑裂： 可能会产生多个Master节点,配置：discovery.zen.minimum_master_nodes = N/2+1</li>
+</ol>
+</li>
+<li>Replica容错  <ul>
+<li>R副本提升为 P副本</li>
+</ul>
+</li>
+<li>尝试重启故障机</li>
+<li>数据恢复 <ul>
+<li>拷贝增量数据</li>
+</ul>
+</li>
+</ol>
 
                 
             </div>
@@ -1135,13 +1154,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/05/compute_soft_test_process/">
+                <a href="/2021/10/17/es-installation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="软考历程">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ES安装、健康检查">
                         
-                        <span class="card-title">软考历程</span>
+                        <span class="card-title">ES安装、健康检查</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1152,16 +1171,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-17
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%BD%AF%E8%80%83/" class="post-category">
-                                    软考
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            TheMoonLight
                             
                         </span>
                     </div>
@@ -1169,8 +1184,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">学习</span>
+                    <a href="/tags/ES/">
+                        <span class="chip bg-color">ES</span>
                     </a>
                     
                 </div>
@@ -1373,7 +1388,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.7k</span>&nbsp;字
+                class="white-color">48.1k</span>&nbsp;字
             
             
             
