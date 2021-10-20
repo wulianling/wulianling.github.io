@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博弈论入门, 当年明月">
+    <meta name="keywords" content="RabbitMq helloWorld, 当年明月">
     <meta name="description" content="成功是为了学习和进步，还是为了证明你聪明？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>博弈论入门 | 当年明月</title>
+    <title>RabbitMq helloWorld | 当年明月</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">博弈论入门</h1>
+                    <h1 class="description center-align post-title">RabbitMq helloWorld</h1>
                 </div>
             </div>
         </div>
@@ -456,27 +456,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BF%83%E7%90%86/">
-                                <span class="chip bg-color">心理</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%8D%9A%E5%BC%88/">
-                                <span class="chip bg-color">博弈</span>
+                            <a href="/tags/mq/">
+                                <span class="chip bg-color">mq</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E9%98%85%E8%AF%BB/" class="post-category">
-                                阅读
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -485,34 +472,34 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-28
+                    2021-10-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2021-10-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    5 分
                 </div>
                 
 
                 
 
-                <span id="/2020/11/28/Game-Theory/" class="leancloud-visitors view" data-flag-title="博弈论入门">
+                <span id="/2021/10/20/rabbitmq-helloworld/" class="leancloud-visitors view" data-flag-title="RabbitMq helloWorld">
 
                     <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                     <span class="leancloud-visitors-count">loading</span>
@@ -527,97 +514,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="★引子"><a href="#★引子" class="headerlink" title="★引子"></a>★引子</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8D%9A%E5%BC%88%E8%AE%BA">博弈论</a>该理论专门研究多个独立个体之间的竞争行为（对抗行为）。在某些中文书籍里面，它又被称作“对策论 or 赛局理论”。<br>本篇只做入门，后面有精力，会考虑详细学习，<br>有时候 入门和无知，已经能感受到巨大的差距了，不是吗？</p>
-</blockquote>
-<h3 id="★策略-＆-策略集合"><a href="#★策略-＆-策略集合" class="headerlink" title="★策略 ＆ 策略集合"></a>★策略 ＆ 策略集合</h3><p><strong>决策选项（move） VS 策略（strategy）</strong></p>
-<p>　某些资料（比如维基百科）把“move”直译为“移动”。这个译法比较怪。在本文中，俺称之为“决策选项”。<br>　　很多人混淆了“策略”与“决策选项”。<br>　　以象棋为例，完成一局需要经历很多个步骤。对每个步骤，你都有 N 个决策选项（要走哪个棋子，走到哪）。而“策略”指的是——从第一步到最后一步的所有决策选项的【总和】。你可以把“策略”通俗理解为某种【算法 or 指导思想】，它指导你从第一步走到最后一步。</p>
-<p><strong>★实例：（二战中）新几内亚的航路作战</strong><br>话说太平洋战场上，美日双方对新几内亚岛展开争夺战。美方通过截获的情报得知日方有一支补给船队要开往该岛。日军补给船队有两条路线可走（北线 or 南线），两条路线都耗时3天。在南线，这3天都是晴天；在北线有2天是晴天，1天是阴雨（阴雨天会影响美军轰炸）。<br>　　美方空军将领手头只有一个飞行队，需要决策：把这个飞行队派到哪一边执行轰炸任务？如果押宝的方向错误，重新部署又会浪费掉1天时间。<br>　　对这个博弈过程，美方的收益矩阵参见下述表格。表格中的数字表示“可用来轰炸的天数”（对美军而言，这个数字越大越好）。</p>
-<table style>
-    <tr>
-        <td></td>
-        <td colspan="3" style="text-align:center">日方</td>
-    </tr>
-    <tr>
-        <td rowspan="3">美方</td>
-        <td></td>
-        <td>北线</td>
-        <td>南线</td>
-    </tr>
-    <tr>
-        <td>北线</td>
-        <td>2</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>南线</td>
-        <td>1</td>
-        <td>3</td>
-    </tr>
-
-</table>
-　　从上述收益矩阵来看，美军应该选哪个策略，不那么明显。但如果【换位思考】，看日军的策略，就非常明显啦。
-<table style>
-    <tr>
-        <td></td>
-        <td colspan="3" style="text-align:center">日方</td>
-    </tr>
-    <tr>
-        <td rowspan="3">美方</td>
-        <td></td>
-        <td>北线</td>
-        <td>南线</td>
-    </tr>
-    <tr>
-        <td>北线</td>
-        <td>2,-2</td>
-        <td>2,-2</td>
-    </tr>
-    <tr>
-        <td>南线</td>
-        <td>1,-1</td>
-        <td>3,-3</td>
-    </tr>
-</table>
-　第2个表格补充了日方的收益（以逗号分隔）。由于日方是遭受轰炸，其收益以“负数”表示。
-　　从日方的角度（表格的【纵向】角度）来看，走北线是其【支配策略】——不论美方如何选择，日方走北线的收益都不比南线差。对应到刚才介绍的概念，日方的这个“支配策略”属于“弱支配策略”。
-　　知道日军必定走北线之后，美军就很容易选定自己的策略了。
-
-<h3 id="★最小最大定理"><a href="#★最小最大定理" class="headerlink" title="★最小最大定理"></a>★最小最大定理</h3><p>这个玩意儿洋文叫做“Minimax”，比较绕口的陈述是：最小化最大损失。更通俗的表述是：在最坏情况下最小化损失。</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20615717">分蛋糕博弈</a></p>
-<h3 id="★反向归纳法"><a href="#★反向归纳法" class="headerlink" title="★反向归纳法"></a>★反向归纳法</h3><p>　该方法洋文称之为“backward induction”。其精髓是【正向展望，反向推理】<br>　首先，你需要思考自己的每个决策，以及对方在应对你的决策时，会采用何种决策（这个思维过程类似于【决策树的展开】）<br>　　这个展开过程要一直推演到【最后一步】（也就是决策树的叶子节点）。此时你就可以看清双方在最后一步各自的最优选择；然后再反向回推到第一步。</p>
-<p><strong>海盗博弈（海盗分金问题）</strong><br>博弈场景描述<br>　　5个海盗抢了100个金币，讨论如何分赃。<br>　　这5个海盗有等级高低（不妨假设 A＞B＞C＞D＞E）。先由等级最高的海盗提出分赃方案，然后投票。如果半数以上（含半数）同意，就按这个方案分，游戏结束；如果同意的不到半数，把提出方案的海盗扔进海里喂鲨鱼，然后由次一等级的海盗提出新的方案；以此类推。<br>　　每个海盗的特点是：足够理性（追求个人利益最大化）并且知道别人也足够理性；足够残忍（在个人利益等同的情况下，倾向于把更多同伴扔进海里）。</p>
-<blockquote>
-<p>　　为了进行反向推理，假设最后只剩下2个海盗（D ＆ E）。此时的投票肯定过半（D 肯定投票赞同自己的方案）。在这种局面下，D 可以采用最极端的方案——自己全拿100个金币，E 则一个也拿不到。<br>　　现在回推一步。当只剩下3个海盗（C、D、E），由 C 提出方案。他只需要分1个金币给 E，E 就会投票支持（否则的话，等到由 D 来提方案，E 啥也拿不到）。所以在 C 的方案中，他自己拿99个金币，E 拿1个金币。<br>　　再往前一步。只剩下4个海盗（B、C、D、E），B 提方案，他当然也能想到刚才那些推理。他只需给 D 1个金币，D 就会支持他（如果等到 C 来提方案，D 啥也拿不到）。所以 B 提出的方案是 B：99，C：0，D：1，E：0，同样能得到半数支持。<br>　　基于上述分析，再看 A 的方案，就很显然了——A：98，B：0，C：1，D：0，E：1<br>    有些同学可能会觉得：A 还可以提出另一个等价方案 A：98，B：0，C：0，D：1，E：1（把 C ＆ D 交换）<br>　　其实这个方案【不】等价。如果是后面这个方案，D 会投反对票，于是 A 去喂鲨鱼，由 B 来提方案，D 还是可以拿到1个金币。虽然两种方案，D 都是拿1个金币。但基于规则中提到的【残忍性】，D 会对 A 的方案投反对票。</p>
-</blockquote>
-<h3 id="★纳什均衡"><a href="#★纳什均衡" class="headerlink" title="★纳什均衡"></a>★纳什均衡</h3><p>　所谓的“纳什均衡”，通俗地说是指——在多人的“非合作博弈”中，如果每个博弈者都无法【单方面】改善自己的境地，此时的局面称作“纳什均衡”。<br>　　冯·诺伊曼已经在《博弈论与经济行为》一书中证明了：零和博弈必定存在这样的均衡点。<br>　　纳什的贡献在于——他从“零和博弈”推广到“非零和博弈”，并证明了：这样的均衡点依然存在。<br><strong>实例：囚徒困境</strong><br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9B%9A%E5%BE%92%E5%9B%B0%E5%A2%83">囚犯困境</a></p>
-<table style>
-    <tr>
-        <td></td>
-        <td colspan="3" style="text-align:center">囚犯B</td>
-    </tr>
-    <tr>
-        <td rowspan="3">囚犯A</td>
-        <td></td>
-        <td>坦白</td>
-        <td>抵赖</td>
-    </tr>
-    <tr>
-        <td>坦白</td>
-        <td>-2,-2</td>
-        <td>0,-5</td>
-    </tr>
-    <tr>
-        <td>抵赖</td>
-        <td>-5,0</td>
-        <td>1,-1</td>
-    </tr>
-</table>
-<p style="text-indent:2em">
-　　基于上述矩阵，“双方都坦白”的局面是“纳什均衡点”（表格中着色的格子）——在这个均衡局面下，任何一个囚犯【单方面】改变策略，只会让自己更不利。
-　　作为对比，“双方都抵赖”虽然是双赢的局面，但这个局面是【不】稳定滴。因为在这个局面下，任何一个囚犯都有动机去改变策略，从而让自己的获益更多。</p>
-
-
+                <h3 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h3><ol>
+<li><p>一个mq服务可以设置多个虚拟机，每个虚拟机就像阿当予一个独立的mq.</p>
+<h4 id="build-by-maven"><a href="#build-by-maven" class="headerlink" title="build by maven"></a>build by maven</h4></li>
+<li><p>pom.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.rabbitmq&lt;&#x2F;groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;amqp-client&lt;&#x2F;artifactId&gt;</span><br><span class="line">  &lt;version&gt;$&#123;last-version&#125;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>producer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;通过连接工厂穿件新的连接和mq建立连接</span><br><span class="line">      ConnectionFactory connectionFactory &#x3D; new ConnectionFactory();</span><br><span class="line">      connectionFactory.setHost(&quot;127.0.0.1&quot;);</span><br><span class="line">      connectionFactory.setPort(5672);</span><br><span class="line">      connectionFactory.setUsername(&quot;guest&quot;);</span><br><span class="line">      connectionFactory.setPassword(&quot;guest&quot;);</span><br><span class="line">      &#x2F;&#x2F;设置虚拟机,一个mq的服务可以设置多个虚拟机，每一个虚拟机就相当于一个独立的mq</span><br><span class="line">      connectionFactory.setVirtualHost(&quot;&#x2F;&quot;);</span><br><span class="line">      &#x2F;&#x2F;建立新连接</span><br><span class="line">      Connection connection &#x3D; null;</span><br><span class="line">      Channel channel &#x3D; null;</span><br><span class="line">      try &#123;</span><br><span class="line">          connection &#x3D; connectionFactory.newConnection();</span><br><span class="line">          &#x2F;&#x2F;设置会话通道,生产者和mq服务所有通信都在channel通道中完成。</span><br><span class="line">          channel &#x3D; connection.createChannel();</span><br><span class="line">          &#x2F;&#x2F;声明队列，如果队列在mq中没有则要创建</span><br><span class="line">          &#x2F;&#x2F;String queue, boolean durable, boolean exclusive, boolean autoDelete, Map&lt;String, Object&gt; arguments</span><br><span class="line">          &#x2F;**</span><br><span class="line">           * 1.queue 队列名称</span><br><span class="line">           * 2.durable 是否持久化，如果持久化，mq重启队列还在</span><br><span class="line">           * 3.exclusive 是否独占连接， 队列只允许在该连接中访问，如果connection连接关闭队列自动删除， 如果将此参数设置true可用于临时队列的创建。</span><br><span class="line">           * 4.autoDelete 自动删除，对了不再使用时是否自动删除此队列，如果将此参数和exclusive参数设置为true就可以实现临时队列（队列不用了就自动删除）</span><br><span class="line">           * 5.argument是参数，可以设置一个队列的扩展参数，（如存活时间）</span><br><span class="line">           *&#x2F;</span><br><span class="line">          channel.queueDeclare(QUEUE, true, false, false ,null);</span><br><span class="line">          &#x2F;&#x2F;发送消息</span><br><span class="line">          &#x2F;&#x2F;String exchange, String routingKey, BasicProperties props, byte[] body)</span><br><span class="line">          &#x2F;**</span><br><span class="line">           * 1. exchange, 交换机，如果不指定将使用mq默认的交换机（设置为“”）</span><br><span class="line">           * 2. routingKey， 路由key，交换机Kenji路由key来讲消息转发到指定的队列，如果使用默认交换机，routingKey这是为队列的名称。</span><br><span class="line">           * 3. props 消息属性</span><br><span class="line">           * 4.body 消息内容</span><br><span class="line">           *&#x2F;</span><br><span class="line">          String message &#x3D; &quot;helloWorld !!!!&quot;;</span><br><span class="line">          channel.basicPublish(&quot;&quot;, QUEUE, null, message.getBytes());</span><br><span class="line">      &#125; catch (IOException e) &#123;</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">      &#125; catch (TimeoutException e) &#123;</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">      &#125;finally &#123;</span><br><span class="line">          &#x2F;&#x2F;关闭连接</span><br><span class="line">          &#x2F;&#x2F;先关闭通道</span><br><span class="line">          try &#123;</span><br><span class="line">              channel.close();</span><br><span class="line"></span><br><span class="line">          &#125; catch (IOException e) &#123;</span><br><span class="line">              e.printStackTrace();</span><br><span class="line">          &#125; catch (TimeoutException e) &#123;</span><br><span class="line">              e.printStackTrace();</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          try &#123;</span><br><span class="line">              connection.close();</span><br><span class="line">          &#125; catch (IOException e) &#123;</span><br><span class="line">              e.printStackTrace();</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>consumer</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;通过连接工厂穿件新的连接和mq建立连接</span><br><span class="line">     ConnectionFactory connectionFactory &#x3D; new ConnectionFactory();</span><br><span class="line">     connectionFactory.setHost(&quot;127.0.0.1&quot;);</span><br><span class="line">     connectionFactory.setPort(5672);</span><br><span class="line">     connectionFactory.setUsername(&quot;guest&quot;);</span><br><span class="line">     connectionFactory.setPassword(&quot;guest&quot;);</span><br><span class="line">     &#x2F;&#x2F;设置虚拟机,一个mq的服务可以设置多个虚拟机，每一个虚拟机就相当于一个独立的mq</span><br><span class="line">     connectionFactory.setVirtualHost(&quot;&#x2F;&quot;);</span><br><span class="line">     &#x2F;&#x2F;建立新连接</span><br><span class="line">     try &#123;</span><br><span class="line">         Connection connection &#x3D; connectionFactory.newConnection();</span><br><span class="line">         &#x2F;&#x2F;设置会话通道,生产者和mq服务所有通信都在channel通道中完成。</span><br><span class="line">         Channel channel &#x3D; connection.createChannel();</span><br><span class="line"></span><br><span class="line">         &#x2F;&#x2F;声明队列，如果队列在mq中没有则要创建</span><br><span class="line">         &#x2F;&#x2F;String queue, boolean durable, boolean exclusive, boolean autoDelete, Map&lt;String, Object&gt; arguments</span><br><span class="line">         &#x2F;**</span><br><span class="line">          * 1.queue 队列名称</span><br><span class="line">          * 2.durable 是否持久化，如果持久化，mq重启队列还在</span><br><span class="line">          * 3.exclusive 是否独占连接， 队列只允许在该连接中访问，如果connection连接关闭队列自动删除， 如果将此参数设置true可用于临时队列的创建。</span><br><span class="line">          * 4.autoDelete 自动删除，对了不再使用时是否自动删除此队列，如果将此参数和exclusive参数设置为true就可以实现临时队列（队列不用了就自动删除）</span><br><span class="line">          * 5.argument是参数，可以设置一个队列的扩展参数，（如存活时间）</span><br><span class="line">          *&#x2F;</span><br><span class="line">         channel.queueDeclare(QUEUE, true, false, false ,null);</span><br><span class="line">         DefaultConsumer defaultConsumer &#x3D; new DefaultConsumer(channel)&#123;</span><br><span class="line">             &#x2F;**</span><br><span class="line">              * 当接收到消息时，此方法被调用。</span><br><span class="line">              * @param consumerTag 消费者标签，用来标识消费者， 在监听队列式设置channel。basicConsumer</span><br><span class="line">              * @param envelope 信封，通过envelope</span><br><span class="line">              * @param properties</span><br><span class="line">              * @param body</span><br><span class="line">              * @throws IOException</span><br><span class="line">              *&#x2F;</span><br><span class="line">             @Override</span><br><span class="line">             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException &#123;</span><br><span class="line">                 &#x2F;&#x2F;交换机</span><br><span class="line">                 String exchange &#x3D; envelope.getExchange();</span><br><span class="line">                 &#x2F;&#x2F;消息id，mq在channel用来标识消费的id，可用于确认消息已接收。</span><br><span class="line">                 long deliveryTag &#x3D; envelope.getDeliveryTag();</span><br><span class="line">                 &#x2F;&#x2F;消息的属性</span><br><span class="line">                 String message &#x3D; new String(body, &quot;utf-8&quot;);</span><br><span class="line">                 System.out.println(&quot;receive message:&quot;+ message);</span><br><span class="line"></span><br><span class="line">             &#125;</span><br><span class="line">         &#125;;</span><br><span class="line"></span><br><span class="line">         &#x2F;&#x2F;监听队列</span><br><span class="line">         &#x2F;&#x2F;String queue, boolean autoAck, Consumer callback</span><br><span class="line">         &#x2F;**</span><br><span class="line">          * 1. queue 队列名称</span><br><span class="line">          * 2.autoAck 自动回复，当消费者接收到消息后要告诉mq消息已收到，如果将此参数设置为true表示会自动回复mq，如果设置为false要通过编程实现回复。</span><br><span class="line">          * 3.callback，消费方法，当消费者接收到消息要执行的方法。</span><br><span class="line">          *&#x2F;</span><br><span class="line">        channel.basicConsume(QUEUE, true, defaultConsumer);</span><br><span class="line"></span><br><span class="line">     &#125; catch (IOException e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">     &#125; catch (TimeoutException e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -643,7 +552,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wulianling.github.io/2020/11/28/Game-Theory/">https://wulianling.github.io/2020/11/28/Game-Theory/</a>
+                    <a href="https://wulianling.github.io/2021/10/20/rabbitmq-helloworld/">https://wulianling.github.io/2021/10/20/rabbitmq-helloworld/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -681,12 +590,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BF%83%E7%90%86/">
-                                    <span class="chip bg-color">心理</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%8D%9A%E5%BC%88/">
-                                    <span class="chip bg-color">博弈</span>
+                                <a href="/tags/mq/">
+                                    <span class="chip bg-color">mq</span>
                                 </a>
                             
                         </div>
@@ -1119,17 +1024,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/29/The-Order-of-Time/">
+                <a href="/2021/10/20/rabbitmq-helloworld/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="《时间秩序》--颠覆对世界固有直觉">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="RabbitMq helloWorld">
                         
-                        <span class="card-title">《时间秩序》--颠覆对世界固有直觉</span>
+                        <span class="card-title">RabbitMq helloWorld</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1139,30 +1045,23 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-20
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%98%85%E8%AF%BB/" class="post-category">
-                                    阅读
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            TheMoonLight
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A7%91%E6%99%AE/">
-                        <span class="chip bg-color">科普</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%97%B6%E9%97%B4/">
-                        <span class="chip bg-color">时间</span>
+                    <a href="/tags/mq/">
+                        <span class="chip bg-color">mq</span>
                     </a>
                     
                 </div>
@@ -1176,13 +1075,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/27/reflections_on_the_psychology_of_procrastination/">
+                <a href="/2021/10/19/es-installation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="《拖延心理學》讀後感及反思">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ES安装、健康检查">
                         
-                        <span class="card-title">《拖延心理學》讀後感及反思</span>
+                        <span class="card-title">ES安装、健康检查</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1193,16 +1092,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-19
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%98%85%E8%AF%BB/" class="post-category">
-                                    阅读
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            TheMoonLight
                             
                         </span>
                     </div>
@@ -1210,12 +1105,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BF%83%E7%90%86/">
-                        <span class="chip bg-color">心理</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8F%8D%E6%80%9D/">
-                        <span class="chip bg-color">反思</span>
+                    <a href="/tags/ES/">
+                        <span class="chip bg-color">ES</span>
                     </a>
                     
                 </div>
