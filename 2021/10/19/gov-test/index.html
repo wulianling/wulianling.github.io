@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES安装、健康检查, 当年明月">
+    <meta name="keywords" content="公考技巧, 当年明月">
     <meta name="description" content="成功是为了学习和进步，还是为了证明你聪明？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>ES安装、健康检查 | 当年明月</title>
+    <title>公考技巧 | 当年明月</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ES安装、健康检查</h1>
+                    <h1 class="description center-align post-title">公考技巧</h1>
                 </div>
             </div>
         </div>
@@ -456,8 +456,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES/">
-                                <span class="chip bg-color">ES</span>
+                            <a href="/tags/%E5%85%AC%E8%80%83/">
+                                <span class="chip bg-color">公考</span>
                             </a>
                         
                     </div>
@@ -479,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-19
+                    2021-10-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    275
+                    45
                 </div>
                 
 
@@ -499,7 +499,7 @@
 
                 
 
-                <span id="/2021/10/19/es-installation/" class="leancloud-visitors view" data-flag-title="ES安装、健康检查">
+                <span id="/2021/10/19/gov-test/" class="leancloud-visitors view" data-flag-title="公考技巧">
 
                     <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                     <span class="leancloud-visitors-count">loading</span>
@@ -514,44 +514,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="ES-和-Kibana-安装"><a href="#ES-和-Kibana-安装" class="headerlink" title="ES 和 Kibana 安装"></a>ES 和 Kibana 安装</h3><ol>
-<li>修改了集群默认配置 就会认为是生产环境，会触发一个检查机制，引导检查</li>
-<li>生产环境 多个node不会在同台机器启动！</li>
-</ol>
-<h3 id="ES-node"><a href="#ES-node" class="headerlink" title="ES-node"></a>ES-node</h3><ol>
-<li><p>Role</p>
-<ol>
-<li>master：主节点</li>
-<li>voting：仅投票 （也可以作为数据节点）</li>
-<li>coordinating： 仅协调</li>
-</ol>
+                <h3 id="答题技巧"><a href="#答题技巧" class="headerlink" title="答题技巧"></a>答题技巧</h3><h4 id="一、接语选择题"><a href="#一、接语选择题" class="headerlink" title="一、接语选择题"></a>一、接语选择题</h4><ol>
+<li><p>关注尾句主题，下文对尾句主题的论述或展开</p>
 </li>
-<li><p>node-type:</p>
-<ol>
-<li>master-eligibale node (候选节点)</li>
-<li>data node（数据节点）</li>
-<li>ingest node </li>
-<li>machine learning node(机器学习节点)</li>
-</ol>
+<li><p>干扰项大多是 前文 论述内容</p>
 </li>
 </ol>
-<ol>
-<li>node.master:true //设置主节点，可以竞选主节点 false :没有竞选主节点的资格</li>
-<li>node.data:true //可以进行数据存储</li>
-<li>node.voing_only:true //仅投票</li>
-</ol>
-<p>一般主节点不进行数据存储，只负责 查询，新增，保持高性能</p>
-<p>两个都是false: 协调节点：不作为数据存储 ，只做转发。</p>
-<h3 id="集群的健康值检查"><a href="#集群的健康值检查" class="headerlink" title="集群的健康值检查"></a>集群的健康值检查</h3><ol>
-<li>green: 所有P shared 和R shared 均为active，集群健康。</li>
-<li>yellow：至少一个replica node 不可用，但是数据仍然是完整的。</li>
-<li>red:至少一个 P node 不可用，数据不完整，集群不可用。</li>
-</ol>
-<h3 id="几种查询方式"><a href="#几种查询方式" class="headerlink" title="几种查询方式"></a>几种查询方式</h3><ol>
-<li>query string search： 类似于Url挂参数查询</li>
-<li>query dsl</li>
-<li>query and fliter</li>
-</ol>
+<p>..(未完待续…)</p>
 
                 
             </div>
@@ -578,7 +547,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wulianling.github.io/2021/10/19/es-installation/">https://wulianling.github.io/2021/10/19/es-installation/</a>
+                    <a href="https://wulianling.github.io/2021/10/19/gov-test/">https://wulianling.github.io/2021/10/19/gov-test/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -616,8 +585,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ES/">
-                                    <span class="chip bg-color">ES</span>
+                                <a href="/tags/%E5%85%AC%E8%80%83/">
+                                    <span class="chip bg-color">公考</span>
                                 </a>
                             
                         </div>
@@ -1054,13 +1023,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/20/rabbitmq-helloworld/">
+                <a href="/2021/10/19/es-installation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="RabbitMq helloWorld">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ES安装、健康检查">
                         
-                        <span class="card-title">RabbitMq helloWorld</span>
+                        <span class="card-title">ES安装、健康检查</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1071,7 +1040,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-19
                         </span>
                         <span class="publish-author">
                             
@@ -1084,8 +1053,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mq/">
-                        <span class="chip bg-color">mq</span>
+                    <a href="/tags/ES/">
+                        <span class="chip bg-color">ES</span>
                     </a>
                     
                 </div>
@@ -1099,13 +1068,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/19/gov-test/">
+                <a href="/2021/10/17/Inverted-Index/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="公考技巧">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="ES核心概念">
                         
-                        <span class="card-title">公考技巧</span>
+                        <span class="card-title">ES核心概念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1116,7 +1085,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-17
                             </span>
                         <span class="publish-author">
                             
@@ -1129,8 +1098,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%85%AC%E8%80%83/">
-                        <span class="chip bg-color">公考</span>
+                    <a href="/tags/ES/">
+                        <span class="chip bg-color">ES</span>
                     </a>
                     
                 </div>
