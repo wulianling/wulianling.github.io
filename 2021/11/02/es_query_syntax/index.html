@@ -479,21 +479,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-02
+                    2021-11-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    10 分
                 </div>
                 
 
@@ -595,6 +595,92 @@
 <p>会返回 scroll_id 标记 最后查询的位置</p>
 <p>下一次查询，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;_search&#x2F;scroll</span><br><span class="line">&#123;</span><br><span class="line">	&quot;scroll&quot;:1m # 第二次查询的时候更新这个到期时间</span><br><span class="line">	&quot;scroll_id&quot; :&quot;SD9SU92398HR29SHH929X7&quot; #每一次查询必须带上前一次的ID</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="filter-缓存"><a href="#filter-缓存" class="headerlink" title="filter 缓存"></a>filter 缓存</h3><ol>
+<li>filter不是每次执行否会进行缓存，而是当执行一定次数的时候才会进行cache一个二进制数组，1表示匹配，2表示不匹配，这个次数是不固定的。</li>
+<li>filter会从有限过滤掉稀疏的数据中，保留匹配的cache数组。</li>
+<li>filter cache 保存的是匹配的结果，不需要再从倒排索引中去查找比对，大大涂改可查询速度，</li>
+<li>filter <strong>一般会在query之前执行</strong>，过滤掉一部分数据，从而提高query的速度</li>
+<li>filter不计算相关度分数，在执行效率上比query高。</li>
+<li><strong>当元数据发生改变时，cache也会更新。</strong></li>
+</ol>
+<p><em>filter没有匹配度查询</em></p>
+<h3 id="mapping"><a href="#mapping" class="headerlink" title="mapping"></a>mapping</h3><p>概念：mapping 就是ES数据字段field的type元数据，ES在创建索引的时候,dynamic mapping会自动为不同的数据指定相应mapping，mapping中包含了字段的类型、搜索方式（exact value或者full text）、分词器等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;index&#x2F;_doc&#x2F;100</span><br><span class="line">&#123;</span><br><span class="line">	&quot;name&quot;:123</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;product&#x2F;_mapping&#x2F;type（旧）</span><br><span class="line">GET &#x2F;product&#x2F;_mapping*s*（新）</span><br></pre></td></tr></table></figure>
+<p>如果 字段属性 类型是text ，会默认keyword 的type是keyword 关键词长度是256后忽视</p>
+<ol>
+<li><p>Dynamic mapping </p>
+<ol>
+<li>“Elasticsearch” : text/keyword</li>
+<li>123456 =&gt; long ? 为啥不是integer</li>
+<li>123.123 =&gt; double</li>
+<li>true =&gt; boolean</li>
+<li>2020-05-30 =&gt; date<br>为啥price是long类型而不是integer类型，因为es的mapping_type 是由json分析器检测数据类型，而json没有隐式类型转换（integer=&gt;long or float =&gt; double）,所以dynamic mapping 会选择比较宽的数据类型</li>
+</ol>
+</li>
+<li><p>搜索方式</p>
+<ol>
+<li>exact value 精确匹配： 在倒排索引过程中，分词器会将field作为一个整体创建到索引中，</li>
+</ol>
+<p> <em>注短语搜索：关键词作为整体匹配</em></p>
+<ol start="2">
+<li><p>full text 全文索引： 分词、近义词同义词、混淆词、大小写、过滤、时态转换等（normalzition）</p>
+<p>exact value 类型字段 必须完全匹配 如：date 类型<br>string 的 text 是 full text，keyword 是 exact value</p>
+</li>
+</ol>
+</li>
+<li><p>ES 数据类型</p>
+<ol>
+<li>核心类型<ol>
+<li>数字类型<ul>
+<li>long/integer/short/byte/float/half_foat/scaled_float</li>
+</ul>
+</li>
+<li>字符串：string<ul>
+<li>keyword: 适用于索引结构化的字段，可以用于过滤、排序、聚合。keyword类型的字段只能通过精确值（exact value） 搜索到。如id应该用keyword</li>
+<li>text： 当一个字段是要被全恩搜索的，比如email内容、产品描述，这些字段应该使用text类型。设置text类型以后，字段内容会被分析，在生成倒排序索引以前，字符串会被分析器分恒一个一个词项。text类型的字段不用于排序，<strong>很少用于聚合</strong>。</li>
+<li>有时，在同一个字段汇总同时具有全文和关键词版本会很有用，一个用于全文本搜索，另一个用于聚合和排序。</li>
+</ul>
+</li>
+<li>date</li>
+<li>布尔类型</li>
+<li>binary:二进制</li>
+<li>range（区间类型）：integer_range/float_range/long_range/double_range/date_range</li>
+<li>复杂类型<ol>
+<li>object：用于单个JSON字符串</li>
+<li>Nested: 用于JSON字符串数组</li>
+</ol>
+</li>
+<li>地理位置</li>
+<li>特有类型<ol>
+<li>Array</li>
+<li></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>创建mapping</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;index</span><br><span class="line">&#123;</span><br><span class="line">	&quot;mappings&quot;:&#123;</span><br><span class="line">		&quot;properties&quot;:&#123;</span><br><span class="line">			&quot;create_date&quot;:&#123;</span><br><span class="line">				&quot;type&quot;:&quot;date&quot;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>索引、名字、字段 一律小写</strong></p>
+<ol start="5">
+<li>mapping parameters<ol>
+<li>index:是否创建对当前字段创建索引，默认 true,如果不创建索引，该字段不会被通过这个字段检索数据。</li>
+<li>analyzer: 指定分析器（character filter、tokenizer、Token filter）</li>
+<li>coerce： 是否允许被强制类型转换</li>
+<li>bost:权重 默认1，权重</li>
+<li></li>
+</ol>
+</li>
+</ol>
+<h3 id="聚合搜索"><a href="#聚合搜索" class="headerlink" title="聚合搜索"></a>聚合搜索</h3><ol>
+<li></li>
+</ol>
 
                 
             </div>
@@ -1378,7 +1464,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">52.3k</span>&nbsp;字
             
             
             
