@@ -479,7 +479,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-05
+                    2021-11-06
                 </div>
                 
 
@@ -675,7 +675,7 @@
 <li>coerce： 是否允许被强制类型转换</li>
 <li>bost:权重 默认1，权重</li>
 <li>copy_to: </li>
-<li><strong>doc_value</strong>:为了提高排序和聚合效率，默认true。如果确定不需要对字段进行排序或聚合，也不需要通过脚本访问字段值，呢可以禁用doc值一节省磁盘空间（不支持text和annotated_text）</li>
+<li><strong>doc_value</strong>:为了提高排序和聚合效率，默认true。如果确定不需要对字段进行排序或聚合，也不需要通过脚本访问字段值，呢可以禁用doc值一节省磁盘空间（不支持text和annotated_text）,如果不需要聚合查询，可以设置为false，提高查询效率，如果设置成false，不能再改了， 如果想改，只能重新创建索引。</li>
 <li>dynamic: 控制是否可以动态添加新字段<ol>
 <li>true新检测到的字段将添加到映射中。（默认）</li>
 <li>false 新检测到的字段将被忽略，这些字段将不会被索引，因此将无法搜索，单人会出现在_source返回的匹配相中，这些字段不会添加到映射总，必须显示添加新字段。</li>
@@ -684,7 +684,7 @@
 </li>
 <li>eager_global_ordinals： 用于集合的字段上，优化聚合性能。</li>
 <li>enable：是否创建倒排索引，可以对字段操作。</li>
-<li><strong>fielddate</strong>:查询是内存数据结构，在首次用当前字段聚合、排序或者在脚本中使用时，需要字段为fielddata数据结构，并且创建倒排索引保存到堆中。</li>
+<li><strong>fielddate</strong>:查询是内存数据结构，在首次用当前字段聚合、排序或者在脚本中使用时，需要字段为fielddata数据结构，并且创建正排索引保存到堆中。</li>
 <li>fields: 给filed创建多个字段，用于不同目的（全文检索或聚合分析排序）</li>
 <li>format: 格式化 如果date 的格式化</li>
 <li>norms: 是否禁用评分（filter和聚合字段上应该禁用）</li>
@@ -1209,18 +1209,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/02/es_query_syntax/">
+                <a href="/2021/11/06/es-underlying-principle/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="上机实操：ES查询语法">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="es底层原理">
                         
-                        <span class="card-title">上机实操：ES查询语法</span>
+                        <span class="card-title">es底层原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1230,9 +1229,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-06
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1241,7 +1240,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1494,7 +1492,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53k</span>&nbsp;字
+                class="white-color">53.9k</span>&nbsp;字
             
             
             

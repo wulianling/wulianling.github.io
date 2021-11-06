@@ -536,11 +536,12 @@
                             <div class="title center-align">建站筆記</div>
                             <div class="description center-align">
                                 
-                                    基本命令备忘清除 构建 本地部署
+                                    基本命令备忘创建新博文
+1hexo new post (post_name)
+
+清除 构建 本地部署
 1$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo s
-默认本地url:http://localhost:4000
-清除 构建 提交远程（github）
-1$ hexo
+默认本地url:http://localho
                                 
                             </div>
                             <div class="cover-btns">
@@ -691,6 +692,51 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/11/06/es-underlying-principle/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="es底层原理">
+                            
+                            <span class="card-title">es底层原理</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                正排索引（doc values） 和倒排索引
+概念： 从广义来说，doc 是掠视本质上是一个序列化的列式存储。列式存储适用于聚合、排序、脚本等操作，所有的数字、地理坐标、日期、IP、和不分析字段类型都会默认开启。
+特点： 倒排索引的优势在于
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                TheMoonLight
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ES/">
+                            <span class="chip bg-color">ES</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1132,67 +1178,6 @@ voting：仅投票 （也可以作为数据节点）
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/12/02/java-reflection-mechanism-and-dynamic-proxy/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="谈谈Java反射机制，动态代理是基于什么原理？">
-                            
-                            <span class="card-title">谈谈Java反射机制，动态代理是基于什么原理？</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                谈谈Java反射机制，动态代理是基于什么原理？
-★考点
-考察你对反射机制的了解和掌握程度。
-动态代理解决了什么问题，在你业务系统中的应用场景是什么？
-JDK动态代理在设计和实现上与cglib等方式有什么不同，进而如何取舍？
-
-反射学习jav
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    基础
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/java/">
-                            <span class="chip bg-color">java</span>
-                        </a>
-                        
-                        <a href="/tags/%E4%BB%A3%E7%90%86/">
-                            <span class="chip bg-color">代理</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%8F%8D%E5%B0%84/">
-                            <span class="chip bg-color">反射</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1294,7 +1279,7 @@ JDK动态代理在设计和实现上与cglib等方式有什么不同，进而如
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53k</span>&nbsp;字
+                class="white-color">53.9k</span>&nbsp;字
             
             
             
