@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES安装、健康检查, 当年明月">
+    <meta name="keywords" content="Cluster-optimization, 当年明月">
     <meta name="description" content="成功是为了学习和进步，还是为了证明你聪明？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>ES安装、健康检查 | 当年明月</title>
+    <title>Cluster-optimization | 当年明月</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ES安装、健康检查</h1>
+                    <h1 class="description center-align post-title">Cluster-optimization</h1>
                 </div>
             </div>
         </div>
@@ -472,34 +472,34 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-01
+                    2021-11-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-02
+                    2021-11-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    214
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
                 
 
-                <span id="/2021/11/01/es-installation2/" class="leancloud-visitors view" data-flag-title="ES安装、健康检查">
+                <span id="/2021/11/08/Cluster-optimization/" class="leancloud-visitors view" data-flag-title="Cluster-optimization">
 
                     <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                     <span class="leancloud-visitors-count">loading</span>
@@ -514,20 +514,81 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>JDK-&gt;下载-&gt;<br>启动 Linux:./elasticsearch -d window: elasticsearch-&gt;<br>验证: localhost:9200</p>
-<h4 id="开发模式和生产模式"><a href="#开发模式和生产模式" class="headerlink" title="开发模式和生产模式"></a>开发模式和生产模式</h4><ol>
-<li>生产模式<br>如果修改有关集群的相关配置，ES 就认为你用于生产环境，触发生产检查， 警告信息升级到异常，log输出，阻断启动.</li>
-<li>开发模式<br>默认配置，用于学习阶段</li>
+                <p>1.集群优化（运维优化）</p>
+<ol>
+<li><p>节点</p>
+<ol>
+<li>相同角色节点，避免使用较大差异的配置</li>
+<li>避免使用 “超大杯”服务器（SS服务器：Super Server）,128核心，1T的内存，2T的硬盘。不仅会赵成资源浪费，而且可能会降低性能。</li>
+<li>等量的配置，使用较少的物理机好于使用较多的虚拟机，5台4核16G内存的物理机，10台甚至11台2核8G 的虚拟机，虚拟机本身消耗性能，还涉及数据安全的问题。</li>
+<li>避免在同一台服务器上部署多个节点。</li>
 </ol>
-<p>学习阶段 可以在docker安装，生产环境，不建议安装到容器中。 </p>
-<ol start="3">
-<li>kibana<br>localhost:6501</li>
+</li>
+<li><p><strong>内存</strong>：</p>
+<ol>
+<li>根据业务量的不同，对内存的需求也不一样，一般生产环境建议不要少于16G的内存，尽量不要超过64G。ES本身非常依赖内存，并且ES对内存消耗比较大，内存对ES的重要性是高于CPU，所以即使你的业务数据量不大，为了保证服务的稳定性。在满足业务的前提下，我们仍要考虑有不少于20% 的冗余性能。一般来说。按照百万级、千万级、亿级数据量的索引，我们分别为每个节点分配16G、32G、64G。** 如果性能不足，最好是横向扩容**。</li>
 </ol>
-<p>  node.data = true : 设置成数据节点  ，master 不要设置，master 尽量只用来</p>
-<h3 id="master-选举"><a href="#master-选举" class="headerlink" title="master 选举"></a>master 选举</h3><h3 id="脑裂"><a href="#脑裂" class="headerlink" title="脑裂"></a>脑裂</h3><p>节点互不通信， 发生选举 ，导致出现两个master </p>
-<p>解决方法： discovery.zen.minimum_master_nodes =N/2+1</p>
-<p>3或4个节点 ，可以容忍1各节点宕机</p>
-<p>如果2个或更少，集群必须保持可用，不可以忍受宕机，不然会发生脑裂</p>
+</li>
+<li><p><strong>磁盘</strong>：</p>
+<ol>
+<li>对于ES来说，磁盘可能是最重要的了，以为数据都是存贮在磁盘上的，当然这里说的磁盘指的是磁盘的性能。磁盘性能往往是计算机性能的瓶颈，木桶效应的最短板。ES应用可能要面临不间断，大量的数据读写。生产环境可以把界定啊冷热分离，热节点使用SSD做存储，可以大幅度提高系统的性能；冷数据存储在机械硬盘中，降低成本。关于磁盘阵列使用raid0</li>
+</ol>
+</li>
+<li><p>cpu：</p>
+<ol>
+<li>cpu 对计算机而言可能是最重要的硬件，对于ES来说他不是最重要的，就是说提升CPU的性能不想提升内存和硬盘收益来的那么直接。服务器的CPU不太需要单核性能，需要的是更多的核心数和线程数，这意味着更高的并发处理能力。</li>
+</ol>
+</li>
+<li><p>网络： </p>
+<ol>
+<li>ES天生自带分布式属性，并且ES的分布式是基于对等网络，节点与节点之间的通信十分频繁，延迟对于ES的用户体验是致命的，低延迟的网络是非常必要的，因此使用跨地域的多个数据中心方案是不可取的。ES可以容忍集群跨多个机房，可以有多个内网，支持夸AZ部署，但是不能接受跨多个地域构建集群，hdfs+Azure az共享data。一旦发生问题，集群直接GG，维护这样的集群额外成本可能远大于它带来的收益。</li>
+</ol>
+</li>
+<li><p>集群规划：</p>
+<ol>
+<li>在集群搭建之前，首先你要考虑清楚，你的ES cluster 的使用目的是什么，主要应用于那些场景，比如是用来存储日志，或者是站内搜索，或者是用于数据的聚合分析，针对不同的应用场景，应该制定不同的优化方案。</li>
+<li>集群需要多少种配置（内存性、IO、运算性），每一种配置需要多少数量，通常需要和产品运营和运维测试商定。 视业务量和服务器承载能力而定，并且留有一定余量。</li>
+<li>一个合理的ES 集群配置应该不少于5台节点，3台Master节点，避免脑裂时无法选举出新的master节点的情况，另外可能还需要其他一些单独的节点，比如ELK系统中的kibana、Logstash,ES 节点不要部署其他任何东西除了beats。</li>
+</ol>
+</li>
+<li><p>集群搭建：</p>
+<ol>
+<li>重要节点的配置：<ul>
+<li>cluster.name: 集群的名字</li>
+<li>node.name:节点名字</li>
+<li>path.data:默认数据的存储位置，不修改，ES_PATH/data,推荐设置到安装目录之外  /var/log</li>
+<li>path.logs: 如 /var/log/elasticsearch ,别忘了改目录权限（读写）</li>
+<li>bootstrap.memory.lock:内存锁，生产环境一般无脑设成true,禁用swap空间，如果内存不足的是否，ES会使用Swap空间，性能是非常差。内存小的话，引导检查过不去。</li>
+<li>network.host:当前节点绑定IP地址</li>
+<li>http.port:服务端口号，用来 REST api 服务用的。[9200-9299）</li>
+<li>transport.port ：集群中多个节点通信的端口号。节点转发通讯端口[9300-9399)</li>
+<li>discovery.send_hosts: [“localhost:9200”,”localhost:9201”] 候选节点的IP地址，当前master节点和候选节点的IP地址。</li>
+<li>cluster.initial_master_nodes: 集群初始化的时候，手动配置一个master节点，可以是IP地址，也可以是节点名称。</li>
+<li>http.cors.enabled:true</li>
+<li>http.cors.allow-origin:跳板机的地址</li>
+<li>node.master:true 是否是候选节点 </li>
+<li>node.data:false 是否是数据节点</li>
+</ul>
+</li>
+<li>其他配置（默认是比较合理的，最好不要改的配置）（不充分了解，最好不要改）<ul>
+<li>比如 max_result_window:10000 默认每一页最多10000条数据，为了限制内存的开销。<br>deep paging 解决方案=&gt;1.scoll;2.search-after；ES 没有银弹的，不可能通过修改一向，或者几项配置一下子提升性能的。</li>
+</ul>
+</li>
+<li>JVM：<ul>
+<li>jvm heap默认配置：7.6.2版本默认1GB，这个值是比较小的。</li>
+<li>jvm heap 大小不要超过物理内存的50%，即便你的物理内存特别大，你的堆内存heap最大也不要超过32GB（compressed OOP）,物理内存32G 16G fielddata 分页 大量使用堆内存，ES基于Lucene，它依赖os cache。</li>
+</ul>
+</li>
+<li>如何修改堆内存 <ul>
+<li>ES启动时 ES_JAVA_OPTS=”-Xms4g-Xmx4g” ./bin/elasticsearch</li>
+<li>jvm.options</li>
+<li>ES_HEAP_SIZE: 环境变量</li>
+<li></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
 
                 
             </div>
@@ -554,7 +615,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wulianling.github.io/2021/11/01/es-installation2/">https://wulianling.github.io/2021/11/01/es-installation2/</a>
+                    <a href="https://wulianling.github.io/2021/11/08/Cluster-optimization/">https://wulianling.github.io/2021/11/08/Cluster-optimization/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1026,17 +1087,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/11/02/es_query_syntax/">
+                <a href="/2021/11/08/Cluster-optimization/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="上机实操：ES查询语法">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Cluster-optimization">
                         
-                        <span class="card-title">上机实操：ES查询语法</span>
+                        <span class="card-title">Cluster-optimization</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1046,9 +1108,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1057,6 +1119,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1075,13 +1138,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/20/rabbitmq-helloworld/">
+                <a href="/2021/11/07/es-scripting-search/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="RabbitMq helloWorld">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="es-scripting-search">
                         
-                        <span class="card-title">RabbitMq helloWorld</span>
+                        <span class="card-title">es-scripting-search</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1092,7 +1155,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-07
                             </span>
                         <span class="publish-author">
                             
@@ -1105,8 +1168,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mq/">
-                        <span class="chip bg-color">mq</span>
+                    <a href="/tags/ES/">
+                        <span class="chip bg-color">ES</span>
                     </a>
                     
                 </div>
