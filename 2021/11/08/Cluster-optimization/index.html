@@ -576,7 +576,7 @@
 </li>
 <li>JVM：<ul>
 <li>jvm heap默认配置：7.6.2版本默认1GB，这个值是比较小的。</li>
-<li>jvm heap 大小不要超过物理内存的50%，即便你的物理内存特别大，你的堆内存heap最大也不要超过32GB（compressed OOP）,物理内存32G 16G fielddata 分页 大量使用堆内存，ES基于Lucene，它依赖os cache。</li>
+<li>jvm heap 大小不要超过物理内存的50%，即便你的物理内存特别大，你的堆内存heap最大也不要超过34GB-2GB, 16GB-64GB（compressed OOP）,物理内存32G 16G fielddata 分页 大量使用堆内存，ES基于Lucene，它依赖os cache。</li>
 </ul>
 </li>
 <li>如何修改堆内存 <ul>
